@@ -1,60 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <locale.h>
 
-typedef struct DPessoa
+typedef struct elem elemento;
+struct elem
 {
-    char nome[30];
-    int idade;
-    char sexo;
-} Pessoa;
+    int dado;
+    elemento *prox;
+};
 
-typedef struct No
+//recebe valor e lista
+void insere(int x, elemento *p)
 {
-    Pessoa p;
-    struct No *ant, *prox;
-} ListaDE;
-
-ListaDE *insere(ListaDE *l)
-{
-    ListaDE *novo;
-    char nome[30], sexo;
-    int idade;
-    novo = (ListaDE *)malloc(sizeof(ListaDE));
-    printf("Nome: ");
-    scanf("%s", novo->p.nome);
-    printf("Idade: ");
-    scanf("%d", &novo->p.idade);
-    printf("Sexo(F ou M): ");
-    scanf("%s", &novo->p.sexo);
-    novo->prox = l;
-    novo->ant = NULL;
-    if (l != NULL)
-        l->ant = novo;
-    l = novo;
-    return l;
+    elemento *nova;
+    nova = (elemento *)malloc(sizeof(elemento));
+    nova->dado = x;
+    nova->prox = p->prox;
+    p->prox = nova;
 }
-
-void percorre(ListaDE *l)
+void imprime(elemento *ini)
 {
-    if (l == NULL)
+    elemento *p;
+    system("clear");
+    printf("\nElementos na lista:\n");
+    for (p = ini->prox; p != NULL; p = p->prox)
     {
-        return;
+        printf("%d\n", p->dado);
     }
-    else
-    {
-        printf("%s - %d - %c \n", l->p.nome, l->p.idade, l->p.sexo);
-        percorre(l->prox);
-    }
+    printf("\n");
 }
-
 int main()
 {
     setlocale(LC_ALL, "");
     int op = -1, valor;
-    ListaDE *l;
-    l = NULL;
+    elemento *lista = NULL;
+    lista = (elemento *)malloc(sizeof(elemento));
     while (op != 0)
     {
         printf("\nOpções do Menu:\n");
@@ -69,14 +49,13 @@ int main()
             printf("\n\nSair do sistema\n");
             break;
         case 1:
-        {
-            system("clear");
-            percorre(l);
+            imprime(lista);
             break;
-        }
         case 2:
         {
-            l = insere(l);
+            printf("\nEntre valor a ser inserido na lista: ");
+            scanf("%d", &valor);
+            insere(valor, lista);
             system("clear");
             break;
         }
@@ -84,4 +63,5 @@ int main()
             printf("\n\nOpção invalida !\n");
         }
     }
+    return 0;
 }
