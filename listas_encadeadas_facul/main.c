@@ -23,7 +23,7 @@ ListaDE *insere(ListaDE *l)
     int idade;
     novo = (ListaDE *)malloc(sizeof(ListaDE));
     printf("Nome: ");
-    scanf("%s", &novo->p.nome);
+    scanf("%s", novo->p.nome);
     printf("Idade: ");
     scanf("%d", &novo->p.idade);
     printf("Sexo(F ou M): ");
