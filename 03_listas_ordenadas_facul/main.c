@@ -19,7 +19,11 @@ void mostrarLista(lista *p)
     lista *novo;
     for (novo = p; novo != NULL; novo = novo->prox)
     {
-        printf("%d - ", novo->dado);
+        if(novo->prox != NULL){
+            printf("%d - ", novo->dado);
+        }else{
+            printf("%d", novo->dado);
+        }
     }
 }
 lista *ordenarLista(lista *p)
