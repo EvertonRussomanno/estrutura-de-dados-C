@@ -46,7 +46,8 @@ lista *ordenarLista(lista *p)
     }
     return p;
 }
-main(int argc, char *argv[])
+
+int main()
 {
     setlocale(LC_ALL, "");
     int op = -1, valor;
@@ -92,4 +93,5 @@ main(int argc, char *argv[])
             printf("\n\nOpção invalida !\n");
         }
     }
+   
 }
