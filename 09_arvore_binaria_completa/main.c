@@ -88,14 +88,12 @@ int main(void)
         switch (opt)
         {
         case 1:
-            printf("\nInforme qual é o Elemento PAI (deixar em Branco caso for a Raiz): ");
+            printf("\nInforme qual é o Elemento PAI: ");
             scanf("%s", &pai);
             fflush(stdin);
-            // scanf("%c",&pai);
             printf("Digite o elmento do NO: ");
             scanf("%s", &no);
             fflush(stdin);
-            // scanf("%c",&no);
             printf("Digite o lado da subarvore \n Filho a Esquerda = %d \n Filho a Direita = %d \n Nó Raiz = %d: ", E, D, R);
             scanf("%d", &lado);
             fflush(stdin);
@@ -106,7 +104,6 @@ int main(void)
             printf("Digite o Elemento a ser pesquisado: ");
             scanf("%s", &no);
             fflush(stdin);
-            // scanf("%c",&no);
             temp = ProcurarElemento(no);
             printf("No %c\nFilho Esquerda: %c \nFilho Direita: %c\n\n", arvore[temp].dado, arvore[arvore[temp].FilhoEsq].dado, arvore[arvore[temp].FilhoDir].dado);
             printf("Pressione qualquer letra para voltar ao menu...");
