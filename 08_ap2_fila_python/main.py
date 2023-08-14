@@ -23,8 +23,12 @@ while sair != 1:
             print("A fila está vazia.")
         else:
             fila.pop(0)
-            os.system('clear') or None
-            print(fila)
+            if not fila:
+                os.system('clear') or None
+                print("A fila está vazia.")
+            else:
+                os.system('clear') or None
+                print(fila)
         
     if entrada == 0:
         sair = 1
