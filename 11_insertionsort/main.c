@@ -6,7 +6,7 @@
 //Protótipo da função de ordenação
 void insertion_sort(int *a);
 
-int main(int argc, char** argv)
+int main(int argc, char* argv)
 {
     int i, vet[MAX];
 
