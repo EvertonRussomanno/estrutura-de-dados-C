@@ -8,7 +8,7 @@
 #ifdef WIN32
 #include <linux.h>
 #define LIMPA_TELA system("cls")
- Senão for Windows (se for Linux)
+ Se não for Windows (se for Linux)
 #else
 #include <unistd.h>
 #define LIMPA_TELA system("/usr/bin/clear")
